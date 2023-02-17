@@ -16,9 +16,10 @@ Nuestra misión es crear una solución innovadora que facilite los procesos de c
 
 
 # Valores:
-* Colaboración
-* Integridad
-* Respeto
+* Colaboración: Reconocemos el trabajo colaborativo y multidisciplinario. Anteponemos el éxito colectivo por encima del individual.
+* Integridad: Somos congruentes, nos conducimos con la verdad y rechazamos las conductas no éticas. Somos responsables de nuestros comportamientos y nuestras decisiones son congruentes con nuestros principios y valores.
+* Respeto: Respetamos la propiedad intelectual y, por lo tanto, reconocemos el derecho de propiedad moral y comercial de los autores y dueños, asimismo tratamos a nuestros miembros del equipo con respeto.
+
 
 
 
