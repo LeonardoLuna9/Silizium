@@ -17,7 +17,9 @@ Nuestra misión es crear una solución innovadora que facilite los procesos de l
 
 
 # Valores:
-
+* Colaboración
+* Integridad
+* Respeto
 
 
 
