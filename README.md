@@ -9,8 +9,7 @@
 
 # Mision:
 
-Nuestra misión es crear una solución innovadora que facilite los procesos de la empresa IBM, que brinde una grata experiencia de usuario y que aporte valor a la sociedad.
-
+Nuestra misión es crear una solución innovadora que facilite los procesos de capacitación de la empresa IBM y que al mismo tiempo brinde una grata experiencia de usuario con el fin de que sea un proyecto que aporte valor a la empresa y a la sociedad.
 
 # Vision:
 
