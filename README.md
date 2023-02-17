@@ -1,5 +1,8 @@
 # Team Name: Silizium
 
+## Logo:
+![](Silizium.png)
+
 ## Team Members: 
 ### Leonardo Luna Flores (A01633305)
 ### Edgar Cruz Vázquez (A01730577)
@@ -19,5 +22,4 @@ Nuestra misión es crear una solución innovadora que facilite los procesos de l
 
 
 
-# Imagen:
-![](Silizium.png)
+
