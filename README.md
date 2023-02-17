@@ -1,6 +1,4 @@
 # Team Name: Silizium
-
-## Logo:
 ![](Silizium.png)
 
 ## Team Members: 
