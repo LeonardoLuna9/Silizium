@@ -1,5 +1,5 @@
 # Team Name: Silizium
-![](Silizium.png)
+![](SiliziumLogo.png)
 
 ## Team Members: 
 ### Leonardo Luna Flores (A01633305)
