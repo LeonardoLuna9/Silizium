@@ -13,7 +13,7 @@ Nuestra misión es crear una solución innovadora que facilite los procesos de c
 
 # Vision:
 
-
+Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones y trabajos con fácil usabilidad, potencia y capacidad de resiliencia en diferentes entornos y actividades, con un equipo de personas cualificadas. 
 
 # Valores:
 * Colaboración: Reconocemos el trabajo colaborativo y multidisciplinario. Anteponemos el éxito colectivo por encima del individual.
