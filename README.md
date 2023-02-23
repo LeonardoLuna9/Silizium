@@ -34,7 +34,7 @@ Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones
 # Necesidad a resolver:
 
 # Objetivos: 
-* Terminar análisis de requerimientos dentro de estas 5 semanas, para generar los documentos de requerimientos y poder continuar con el desarrollo del proyecto.
-* Hacer investigacion de tecnologías o herramientas en estas 5 semanas que ayudaran al proceso y desarrollo del proyecto en base a los requerimientos a obtener.
+* Terminar análisis de requerimientos dentro de estas 5 semanas (17-03-2023), para generar los documentos de requerimientos y poder continuar con el desarrollo del proyecto.
+* Hacer investigacion de tecnologías o herramientas en estas 5 semanas (17-03-2023) que ayudaran al proceso y desarrollo del proyecto en base a los requerimientos a obtener.
 
 
