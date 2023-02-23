@@ -32,6 +32,7 @@ Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones
 # Descripción y alcance del proyecto, y del socio propietario:
 
 # Necesidad a resolver:
+IBM maneja y lleva control de sus certificaciones usa la herramienta Excel y se desea remplazar por un dashboard para facilitar el análisis, manejo y control de dichas certificaciones.
 
 # Objetivos: 
 * Desarrollar aplicación/software que permita facilitar el manejo, control y análisis de las certificaciones de IBM con un dashboard dentro de estas 15 semanas (09-06-2023).
