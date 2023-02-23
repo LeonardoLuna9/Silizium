@@ -22,12 +22,12 @@ Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones
 
 # Estructura de la oficina:
 ## Front End Developers
-** Paulina Lizet Gutiérrez Amezcua
-** Leonardo Luna Flores
+* Paulina Lizet Gutiérrez Amezcua
+* Leonardo Luna Flores
 
 ## Back End Developers
-** David Román Velasco 
-** Edgar Cruz Vázquez
+* David Román Velasco 
+* Edgar Cruz Vázquez
 
 # Descripción y alcance del proyecto, y del socio propietario:
 
