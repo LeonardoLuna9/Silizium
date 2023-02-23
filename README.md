@@ -37,6 +37,6 @@ Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones
 * Desarrollar aplicación/software que permita facilitar el manejo, control y análisis de las certificaciones de IBM con un dashboard dentro de estas 15 semanas (09-06-2023).
 * Terminar análisis de requerimientos dentro de estas 5 semanas (17-03-2023), para generar los documentos de requerimientos y poder continuar con el desarrollo del proyecto.
 * Hacer investigacion de tecnologías o herramientas en estas 5 semanas (17-03-2023) que ayudaran al proceso y desarrollo del proyecto en base a los requerimientos a obtener.
-![]()
+![](reactjs.png)
 
 
