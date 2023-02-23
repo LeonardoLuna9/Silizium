@@ -21,6 +21,13 @@ Volvernos un equipo de trabajo el cual sea caracterizado por entregar soluciones
 * Respeto: Respetamos la propiedad intelectual y, por lo tanto, reconocemos el derecho de propiedad moral y comercial de los autores y dueños, asimismo tratamos a nuestros miembros del equipo con respeto.
 
 # Estructura de la oficina:
+## Front End Developers
+** Paulina Lizet Gutiérrez Amezcua
+** Leonardo Luna Flores
+
+## Back End Developers
+** David Román Velasco 
+** Edgar Cruz Vázquez
 
 # Descripción y alcance del proyecto, y del socio propietario:
 
