@@ -15,13 +15,13 @@ async function getUsers() {
 
 async function getUser(id) {
     const [rows] = await pool.query(
-    `SELECT password 
+    `SELECT * 
     FROM users
     WHERE uid = ?`, [id]);
     return rows[0];
 }
 
-getUsers().then(console.log);
-getUser('1234567890QW').then(console.log);
+//getUsers().then(console.log);
+//getUser('1234567890QW').then(console.log);
 
 module.exports = {getUser, getUsers};

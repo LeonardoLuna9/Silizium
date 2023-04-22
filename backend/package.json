@@ -11,9 +11,14 @@
   "author": "Silizium",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mysql2": "^3.2.1"
+    "express-session": "^1.17.3",
+    "mysql2": "^3.2.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
