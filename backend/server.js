@@ -7,7 +7,7 @@ const passportLocal = require('passport-local');
 require('dotenv').config();
 
 // Database queries
-const {getUser, getUsers} = require('./database.js');
+const {getUser, getUsers, setUser} = require('./database.js');
 
 // Encryption
 const { encryptPassword, matchPassword } = require('./lib/helpers');
@@ -34,10 +34,12 @@ passport.use(new passportLocal(
     function(username, password, done) {
         try {
             getUser(username).then(async (user) => {
-                const validPassword = await matchPassword(password, user.password);
-                if(validPassword && user.length != 0){
-                    console.log("User found");
-                    return done(null, user);
+                if(user){
+                    const validPassword = await matchPassword(password, user.password);
+                    if (validPassword) {
+                        console.log("User found");
+                        return done(null, user);
+                    }
                 }
                 console.log("User not found");
                 return done(null, false);
@@ -61,24 +63,108 @@ passport.deserializeUser(async function(uid,done){
 });
 
 // Routes
-app.post('/login', passport.authenticate('local', { failureRedirect: '/' }),
+// ================================================================================
+
+// Login
+app.post('/login', (req, res, next) => {
+    if(req.isAuthenticated()){
+        res.status(200).send('Ok'); // If it's already logged in
+    }
+    else {
+        return next(); // We continue if not
+    }
+}, passport.authenticate('local'),
 function(req, res) {
-  res.redirect('/users');
+  res.status(200).send({ response: 'Ok' }); // We return Ok if we log in
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
+// Logout
+app.post('/logout', (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next(); // If i't authenticated it may continue
+    }
+    else {
+        res.status(200).send('Ok'); // If it's already logged off we stop him there
+    }
+}, function(req, res, next){ // We use passport logout
+    req.logout(function(err) {
+      if (err) { return next(err); }
+        res.status(200).send('Ok');
+    });
+  });
+
+// Register 
+app.post('/register', (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next(); // Only users can continue
+    }
+    else {
+        res.status(401).send('Unauthorized');
+    }
+}, async (req, res) => {
+    try {
+        // If user is authorized to modify table
+        if (req.user.role === process.env.USER_POWER) {
+            const password = await encryptPassword(req.body.password);
+            // We add new user
+            setUser(req.body.username, password).then((success)=>{
+                if (success) {
+                    res.status(201).send({ response: 'Created' });
+                }
+                else {
+                    res.status(500).send({ response: 'Internal Server Error' });
+                }
+            });
+        }
+        else {
+            res.status(401).send('Unauthorized');
+        }
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send({ response: 'Internal Server Error' });
+    }
 });
 
+// Delete
+app.post('/delete', (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next(); // Only users can continue
+    }
+    else {
+        res.status(401).send('Unauthorized');
+    }
+}, async (req, res) => {
+    try {
+        // If user is authorized to modify table
+        if (req.user.role === process.env.USER_POWER) {
+            // We update table
+        }
+        else {
+            res.status(401).send('Unauthorized');
+        }
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send({ response: 'Internal Server Error' });
+    }
+});
+
+// Get Users
 app.get('/users', (req, res, next) => {
     if(req.isAuthenticated()){
         return next();
     }
     else {
-        res.redirect("/");
+        res.status(401).send('Unauthorized');
     }
 }, async (req,res) => {
     res.send(await getUsers());
+});
+
+// Test
+app.get('/', (req, res) => {
+    res.send('Hello World!')
 });
 
 app.listen(port, () => {

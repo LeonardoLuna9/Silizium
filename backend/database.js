@@ -8,20 +8,49 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise();
 
+// Get users
 async function getUsers() {
-    const [rows] = await pool.query("SELECT * FROM users");
-    return rows;
+    try {
+        const [rows] = await pool.query("SELECT * FROM users");
+        return rows;
+    }
+    catch(error) {
+        console.log(error);
+    }
+    
 }
 
+// Get user by id
 async function getUser(id) {
-    const [rows] = await pool.query(
-    `SELECT * 
-    FROM users
-    WHERE uid = ?`, [id]);
-    return rows[0];
+    try {
+        const [rows] = await pool.query(
+        `SELECT * 
+        FROM users
+        WHERE uid = ?`, [id]);
+        return rows[0];
+    }
+    catch(error) {
+        console.log(error);
+    }
 }
+
+// Set a user
+async function setUser(id, password) {
+    try {
+        const [rows] = await pool.query(
+        `INSERT INTO users(uid, password)
+        VALUES(?, ?)`, [id, password]);
+        return rows;
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+
+
 
 //getUsers().then(console.log);
 //getUser('1234567890QW').then(console.log);
 
-module.exports = {getUser, getUsers};
+module.exports = {getUser, getUsers, setUser, verifyUser};
