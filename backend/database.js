@@ -47,10 +47,36 @@ async function setUser(id, password) {
     }
 }
 
+async function deleteUser(id){
+    try{
+        const [rows] = await pool.query(
+            `UPDATE users SET role = 'inactive' WHERE uid = ?`, 
+            [id]
+        );
+        return rows;
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function activeUser(id){
+    try{
+        const [rows] = await pool.query(
+            `UPDATE users SET role = 'manager' WHERE uid = ?`,
+            [id]
+        );
+        return rows;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 
 
 
 //getUsers().then(console.log);
 //getUser('1234567890QW').then(console.log);
 
-module.exports = {getUser, getUsers, setUser};
+module.exports = {getUser, getUsers, setUser, deleteUser, activeUser};

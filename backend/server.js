@@ -7,7 +7,7 @@ const passportLocal = require('passport-local');
 require('dotenv').config();
 
 // Database queries
-const {getUser, getUsers, setUser} = require('./database.js');
+const {getUser, getUsers, setUser, deleteUser, activeUser} = require('./database.js');
 
 // Encryption
 const { encryptPassword, matchPassword } = require('./lib/helpers');
@@ -35,6 +35,10 @@ passport.use(new passportLocal(
         try {
             getUser(username).then(async (user) => {
                 if(user){
+                    if(user.role === process.env.USER_DELETED){
+                        console.log("User not found");
+                        return done(null, false);
+                    }
                     const validPassword = await matchPassword(password, user.password);
                     if (validPassword) {
                         console.log("User found");
@@ -106,15 +110,33 @@ app.post('/register', (req, res, next) => {
         // If user is authorized to modify table
         if (req.user.role === process.env.USER_POWER) {
             const password = await encryptPassword(req.body.password);
-            // We add new user
-            setUser(req.body.username, password).then((success)=>{
-                if (success) {
-                    res.status(201).send({ response: 'Created' });
+            // Verify if user already exists
+            getUser(req.body.username).then((user) => {
+                if(user){
+                    if(user.role === process.env.USER_DELETED){
+                        activeUser(req.body.username).then((success)=>{
+                            if(success){
+                                res.status(201).send({ response: 'Created'});
+                            }
+                            else{
+                                res.status(500).send({ response: 'Internal Server Error' });
+                            }
+                        });
+                    }
+                    else{
+                        // We add new user
+                        setUser(req.body.username, password).then((success)=>{
+                            if (success) {
+                                res.status(201).send({ response: 'Created' });
+                            }
+                            else {
+                                res.status(500).send({ response: 'Internal Server Error' });
+                            }
+                        });
+                    }
                 }
-                else {
-                    res.status(500).send({ response: 'Internal Server Error' });
-                }
-            });
+            })
+            
         }
         else {
             res.status(401).send('Unauthorized');
@@ -139,6 +161,14 @@ app.post('/delete', (req, res, next) => {
         // If user is authorized to modify table
         if (req.user.role === process.env.USER_POWER) {
             // We update table
+            deleteUser(req.body.username).then((success)=>{
+                if(success){
+                    res.status(201).send({ response: 'User deleted' });
+                }
+                else{
+                    res.status(500).send({ response: 'Internal Server Error '});
+                }
+            });
         }
         else {
             res.status(401).send('Unauthorized');
@@ -171,10 +201,10 @@ app.listen(port, () => {
     console.log('IBM server listening on port ' + port)
 });
 
-//TODO: 'DELETE' (REALMENTE ES UN UPDATE) a los usuarios
+//TODO: 'DELETE' (REALMENTE ES UN UPDATE) a los usuarios "COMPLETE"
 //TODO: 'cambio de password' PROBABLEMENTE
-//TODO: 'en el login verificar si el usuario ya esta eliminado'
-//TODO: 'en caso de volver a registrar un usuario ya borrado hacer update al status'
-//TODO: 'QUERYS RELACIONADAS AL EXCEL'
+//TODO: 'en el login verificar si el usuario ya esta eliminado' "COMPLETE"
+//TODO: 'en caso de volver a registrar un usuario ya borrado hacer update al status' "COMPLETE"
+//TODO: 'QUERYS RELACIONADAS AL EXCEL' (EN CURSO)
 //TODO: 'POSIBLE DOBLE AUTENTIFICACION???' (PROBLAMENTE)
 //TODO: 'BUSCADOR (ENDPOINT-QUERY BUSCADOR)'
