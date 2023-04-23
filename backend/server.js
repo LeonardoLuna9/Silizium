@@ -170,3 +170,11 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log('IBM server listening on port ' + port)
 });
+
+//TODO: 'DELETE' (REALMENTE ES UN UPDATE) a los usuarios
+//TODO: 'cambio de password' PROBABLEMENTE
+//TODO: 'en el login verificar si el usuario ya esta eliminado'
+//TODO: 'en caso de volver a registrar un usuario ya borrado hacer update al status'
+//TODO: 'QUERYS RELACIONADAS AL EXCEL'
+//TODO: 'POSIBLE DOBLE AUTENTIFICACION???' (PROBLAMENTE)
+//TODO: 'BUSCADOR (ENDPOINT-QUERY BUSCADOR)'

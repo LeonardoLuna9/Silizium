@@ -53,4 +53,4 @@ async function setUser(id, password) {
 //getUsers().then(console.log);
 //getUser('1234567890QW').then(console.log);
 
-module.exports = {getUser, getUsers, setUser, verifyUser};
+module.exports = {getUser, getUsers, setUser};
