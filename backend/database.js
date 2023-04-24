@@ -73,10 +73,30 @@ async function activeUser(id){
     }
 }
 
-
+async function search(searchText){
+    try {
+        const [rows] = await pool.query(
+            `SELECT employees.uid AS id, name, org, work_location, certification, issue_date, type 
+            FROM employees INNER JOIN certifications 
+            ON employees.uid = certifications.uid 
+            WHERE employees.uid LIKE ? 
+            OR name LIKE ? 
+            OR org LIKE ? 
+            OR work_location LIKE ? 
+            OR certification LIKE ? 
+            OR issue_date LIKE ? 
+            OR type LIKE ?`,
+            [searchText, searchText, searchText, searchText, searchText, searchText, searchText]
+        );
+        return rows;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 
 //getUsers().then(console.log);
 //getUser('1234567890QW').then(console.log);
 
-module.exports = {getUser, getUsers, setUser, deleteUser, activeUser};
+module.exports = {getUser, getUsers, setUser, deleteUser, activeUser, search};

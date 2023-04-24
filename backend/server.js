@@ -7,7 +7,7 @@ const passportLocal = require('passport-local');
 require('dotenv').config();
 
 // Database queries
-const {getUser, getUsers, setUser, deleteUser, activeUser} = require('./database.js');
+const {getUser, getUsers, setUser, deleteUser, activeUser, search} = require('./database.js');
 
 // Encryption
 const { encryptPassword, matchPassword } = require('./lib/helpers');
@@ -178,6 +178,33 @@ app.post('/delete', (req, res, next) => {
         console.log(error);
         res.status(500).send({ response: 'Internal Server Error' });
     }
+});
+
+// Get search
+app.post('/search', (req, res, next) => {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    else {
+        res.status(401).send('Unauthorized');
+    }
+}, async (req,res) => {
+    try {
+        const searchInput = '%' + req.body.searchText + '%';
+        search(searchInput).then((results)=>{
+            if (results) {
+                res.status(200).send(results);
+            }
+            else {
+                res.status(200).send({});
+            }
+        });
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send({ response: 'Internal Server Error' });
+    }
+    
 });
 
 // Get Users
