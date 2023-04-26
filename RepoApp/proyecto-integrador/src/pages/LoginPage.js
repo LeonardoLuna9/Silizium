@@ -6,9 +6,16 @@ import Login from '../components/Login/Login';
 const LoginPage = () => {
   return (
     <div>
-      <img src={image} alt="Login" />
-      <p className="rectangulo"></p>
-      <Login/>
+    <div className='login-container'>
+      <div className='left-side'>
+        <img src={image} alt="Login" />
+      </div>
+      <div className='right-side'>
+        <Login/>
+      </div>
+    </div>
+    <div className="rectangulo"> 
+    </div>
     </div>
   );
 };
