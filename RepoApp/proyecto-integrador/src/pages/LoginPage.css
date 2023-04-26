@@ -1,0 +1,15 @@
+img {
+    margin-left: 250px;;
+    width: 25%;
+    margin-top: 270px;
+  }
+  
+.rectangulo {
+    position: absolute;
+    width: 100%;
+    height: 73px;
+    left: 0px;
+    top: 730px;
+
+    background: #0F62FE;
+}
