@@ -60,11 +60,11 @@ async function deleteUser(id){
     }
 }
 
-async function activeUser(id){
+async function activeUser(id, password){
     try{
         const [rows] = await pool.query(
-            `UPDATE users SET role = 'manager' WHERE uid = ?`,
-            [id]
+            `UPDATE users SET password = ?, role = 'manager' WHERE uid = ?`,
+            [password, id]
         );
         return rows;
     }
@@ -95,8 +95,34 @@ async function search(searchText){
     }
 }
 
+async function saveKey(id, secret, qrurl, verified) {
+    try {
+        const [rows] = await pool.query(
+            `UPDATE users SET secret = ?, qrurl = ?, verified = ? WHERE uid = ?`,
+            [secret, qrurl, verified, id]
+        );
+        return rows;
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function checkKey(id) {
+    try {
+        const [rows] = await pool.query(
+        `SELECT secret, qrurl, verified 
+        FROM users
+        WHERE uid = ?`, [id]);
+        return rows[0];
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
 
 //getUsers().then(console.log);
 //getUser('1234567890QW').then(console.log);
 
-module.exports = {getUser, getUsers, setUser, deleteUser, activeUser, search};
+module.exports = {getUser, getUsers, setUser, deleteUser, activeUser, search, saveKey, checkKey};
