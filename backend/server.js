@@ -402,5 +402,5 @@ app.listen(port, () => {
 //TODO: 'en el login verificar si el usuario ya esta eliminado' "COMPLETE"
 //TODO: 'en caso de volver a registrar un usuario ya borrado hacer update al status' "COMPLETE"
 //TODO: 'QUERYS RELACIONADAS AL EXCEL' (EN CURSO)
-//TODO: 'POSIBLE DOBLE AUTENTIFICACION???' (PROBLAMENTE)
+//TODO: 'DOBLE AUTENTIFICACION' "COMPLETE"
 //TODO: 'BUSCADOR (ENDPOINT-QUERY BUSCADOR)' "COMPLETE"
