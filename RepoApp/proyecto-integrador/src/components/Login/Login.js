@@ -10,7 +10,6 @@ const Login = () => {
         <input type="text" id="login" className="credentials" placeholder="  Credentials"/><br></br>
         <label htmlFor="password"></label>
         <input type="password" id="password" className="password" placeholder="  Password" />
-
         <button type="submit" className="button">Log In</button>
       </form>
     </div>

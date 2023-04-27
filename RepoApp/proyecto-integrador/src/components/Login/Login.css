@@ -5,56 +5,54 @@
 }
 
 .Login {
-    width: 801px;
-    height: 50px;
-    left: 750px;
-    top: 80px;
+    width: 55.625vw;
+    height: 6px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 3.5vw;
     font-size: 50px;
-    line-height: 50px;
+    line-height: 3.5vw;
     color: #FFFFFF;
+    margin-top: 2.5vw;
 }
 
 .credentials {
     box-sizing: border-box;
-    left: 750px;
-    top: 265px;
     display: flex;
-    gap: 13px;
-    width: 350px;
-    height: 55px;
+    gap: 1vw;
+    width: 24vw;
+    height: 6.7vh;
     background: #393939;
     border: 2px solid #FFFFFF;
+    margin-top: 8vw;
 }
 
 .password {
     box-sizing: border-box;
-    left: 750px;
-    top: 365px;
     display: flex;
-    gap: 15px;
-    width: 350px;
-    height: 55px;
+    gap: 1vw;
+    width: 24vw;
+    height: 6.7vh;
     background: #393939;
     border: 2px solid #FFFFFF;
+    margin-top: 2vw;
 }
 
 .button{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2px;
-    width: 75px;
-    height: 50px;
-    left: 1025px;
-    top: 470px;
+    padding: 0.13vw;
+    width: 5vw;
+    height: 6.7vh;
     color: white;
-    padding-top: 18px;
-    padding-left: 18px;
+    padding-top: 1.4vw;
+    padding-left: 1.2vw;
     background: #0F62FE;
     border: #0F62FE;
+    margin-top: 3vw;
+    margin-left: 19vw;
+    border-radius: 5%;
 }
 
 input::placeholder {
