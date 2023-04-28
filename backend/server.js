@@ -382,6 +382,26 @@ app.post('/search', userLoggedIn, ensureSecondFactor, async (req,res) => {
     
 });
 
+// Get logged in check
+app.get('/login', (req,res) => {
+    if (req.isAuthenticated()) {
+        res.status(200).send(true);
+    }
+    else {
+        res.status(401).send(false);
+    }
+});
+
+// Get double auth check
+app.get('/verify-otp', (req,res) => {
+    if (req.session.authFactors == 'totp') {
+        res.status(200).send(true);
+    }
+    else {
+        res.status(401).send(false);
+    }
+});
+
 // Get Users
 app.get('/users', userLoggedIn, ensureSecondFactor, async (req,res) => {
     res.send(await getUsers());
