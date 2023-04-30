@@ -8,7 +8,7 @@ import { Logout} from '@carbon/icons-react';
 
 const Sidebar = () => {
   return (
-    <div className='login-sidebar'>
+    <div className='container-sidebar'>
       <div>
         <Bee size="56" className="bee"/>
       </div>

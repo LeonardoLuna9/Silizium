@@ -16,6 +16,7 @@
     height: 0.3vh;
     margin-top: 1vw;
     margin-left: 1.2vw;
+    position: absolute;
 }
 
 .policy {
