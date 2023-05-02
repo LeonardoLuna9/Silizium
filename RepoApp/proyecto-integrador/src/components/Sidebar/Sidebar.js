@@ -19,7 +19,7 @@ const Sidebar = () => {
       <div>
         <Policy size="56" className="policy" />
       </div>
-      <div>
+      <div className="table-container">
         <TableOfContents size="56" className="table" />
       </div>
       <div>

@@ -1,0 +1,30 @@
+.table-1{
+    margin-top: -32vw;
+    position: absolute;
+    background-color: transparent;
+    margin-left: 19vw;
+    width: 70vw;
+    height: 60vh;
+}
+
+.table > :not(caption) > * > *{
+    padding: 1.7rem 0.5rem;
+}
+
+.table-rounded {
+    border-radius: 10px;
+  }
+
+th{
+    text-align: left;
+}
+
+th, table, tr, td{
+    background-color: white;
+    color:black;
+    width: 70vw;
+}
+
+th{
+    border-radius: 25px;
+}
