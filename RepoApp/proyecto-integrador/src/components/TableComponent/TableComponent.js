@@ -1,33 +1,101 @@
-import "./TableComponent.css"
+import React, { useState } from 'react';
+import './TableComponent.css';
+import { Certifications } from '../../data/Certifications';
 
-import React from 'react';
+const TableComponent = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-const TableComponent = ({ data }) => {
+  // Determine the total number of pages based on the items per page value and the length of the array
+  const totalPages = Math.ceil(Certifications.length / itemsPerPage);
+
+  // Calculate the range of items currently being shown on the table
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, Certifications.length);
+
+  // Generate an array of page numbers for the dropdown
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleItemsPerPageChange = (event) => {
+    const value = event.target.value;
+    setItemsPerPage(parseInt(value));
+    setCurrentPage(1); // Reset the current page number when changing the items per page value
+  };
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Column 4</th>
-          <th>Column 5</th>
-          <th>Column 6</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
-            <td>{row.column1}</td>
-            <td>{row.column2}</td>
-            <td>{row.column3}</td>
-            <td>{row.column4}</td>
-            <td>{row.column5}</td>
-            <td>{row.column6}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className='tablecomponent-container'>
+      <div className='table-container'>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>org</th>
+              <th>work_location</th>
+              <th>certification</th>
+              <th>issue_date</th>
+              <th>type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Certifications.slice(startIndex, endIndex).map(({ Id, org, work_location, certification, issue_date, type }) => (
+              <tr key={Id}>
+                <td>{Id}</td>
+                <td>{org}</td>
+                <td>{work_location}</td>
+                <td>{certification}</td>
+                <td>{issue_date}</td>
+                <td>{type}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+        <div className='pagination'>
+          <div className='page-info'>
+            Page {currentPage} of {totalPages} pages | Showing {startIndex + 1}-{endIndex} of {Certifications.length} IDs
+          </div>
+          <div className='page-dropdown'>
+            <select value={currentPage} onChange={(e) => handlePageChange(parseInt(e.target.value))}>
+              {pageNumbers.map((pageNumber) => (
+                <option key={pageNumber} value={pageNumber}>
+                  Page {pageNumber}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='items-per-page-dropdown'>
+            <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+              <option value='10'>10 items per page</option>
+              <option value='50'>50 items per page</option>
+              <option value='100'>100 items per page</option>
+              <option value={Certifications.length}>All items</option>
+            </select>
+          </div>
+          <div className='page-arrows'>
+            <button
+              className='arrow-button'
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
+            <button
+              className='arrow-button'
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+    </div>
   );
 };
 

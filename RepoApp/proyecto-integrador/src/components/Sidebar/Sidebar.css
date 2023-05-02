@@ -42,3 +42,8 @@
     width: 9vw;
     height: 100vh;
 }
+
+.container-sidebar {
+    width: 10vw;
+    max-width: 10vw;
+}
