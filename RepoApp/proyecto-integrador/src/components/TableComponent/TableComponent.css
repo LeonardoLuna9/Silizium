@@ -12,45 +12,44 @@
     max-width: 85vw;
 }
   
-  table {
+.table-container table {
     border-collapse: collapse;
     width: 100%;
   }
   
-  th,
-  td {
+.table-container th, td {
     text-align: left;
     padding: 8px;
     border-bottom: 1px solid #525252;
   }
   
-  th {
-    background-color: #f2f2f2;
+.table-container th {
+    background-color: #525252;
   }
   
-  tr:hover {
+.table-container tr:hover {
     background-color: #f5f5f5;
   }
   
-  .pagination {
+.pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
   }
   
-  .page-number {
+.page-number {
     font-size: 16px;
     font-weight: bold;
   }
   
-  .arrow-icon {
+.arrow-icon {
     font-size: 24px;
     cursor: pointer;
     margin: 0 10px;
   }
   
-  .arrow-icon:hover {
+.arrow-icon:hover {
     color: #007bff;
   }
   

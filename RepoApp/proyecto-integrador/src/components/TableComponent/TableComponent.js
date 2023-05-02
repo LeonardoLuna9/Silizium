@@ -36,11 +36,11 @@ const TableComponent = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>org</th>
-              <th>work_location</th>
-              <th>certification</th>
-              <th>issue_date</th>
-              <th>type</th>
+              <th>Org</th>
+              <th>Work Location</th>
+              <th>Certification</th>
+              <th>Issue Date</th>
+              <th>Type</th>
             </tr>
           </thead>
           <tbody>
