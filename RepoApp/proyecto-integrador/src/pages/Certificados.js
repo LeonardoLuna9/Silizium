@@ -15,7 +15,7 @@ const Certificados = () => {
             <h1>Certifications </h1>
           </div>
         <div className='right-right-upper'>
-          <div>
+          <div>   
           </div>
         </div>
         <TableComponent/>  
