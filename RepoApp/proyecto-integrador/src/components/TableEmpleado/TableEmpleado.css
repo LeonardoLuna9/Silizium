@@ -14,17 +14,3 @@
 .table-rounded {
     border-radius: 10px;
   }
-
-th{
-    text-align: left;
-}
-
-th, table, tr, td{
-    background-color: white;
-    color:black;
-    width: 70vw;
-}
-
-th{
-    border-radius: 25px;
-}

@@ -6,8 +6,22 @@ import TableComponent from '../components/TableComponent/TableComponent';
 const Certificados = () => {
   return (
     <div className='certificados-container'>
+      <div className='left-sidebar'>
       <Sidebar/>
-      <TableComponent/>
+      </div>
+      <div className='right-sidecert'>
+        <div className='right-left-upper'>
+          <div className='cert-title'>
+            <h1>Certifications </h1>
+          </div>
+        <div className='right-right-upper'>
+          <div>
+            Search bar
+          </div>
+        </div>
+        <TableComponent/>  
+        </div>
+      </div>
     </div>
   );
 };

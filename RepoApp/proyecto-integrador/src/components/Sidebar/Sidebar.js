@@ -19,8 +19,8 @@ const Sidebar = () => {
       <div>
         <Policy size="56" className="policy" />
       </div>
-      <div className="table-container">
-        <TableOfContents size="56" className="table" />
+      <div className="table-container1">
+        <TableOfContents size="56" className="table1" />
       </div>
       <div>
         <Logout size="56" className="logout" />
