@@ -6,7 +6,7 @@ import TableComponent from '../components/TableComponent/TableComponent';
 const Certificados = () => {
   return (
     <div className='certificados-container'>
-      <div className='left-sidebar'>
+      <div className='left-sidebar-cert'>
       <Sidebar/>
       </div>
       <div className='right-sidecert'>
