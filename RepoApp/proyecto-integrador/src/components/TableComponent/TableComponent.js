@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TableComponent.css';
 import { Certifications } from '../../data/Certifications';
+import {Bookmark} from '@carbon/icons-react';
 
 
 const TableComponent = () => {
@@ -38,6 +39,7 @@ const TableComponent = () => {
         <table>
           <thead>
             <tr>
+              <th></th>
               <th>ID</th>
               <th>Org</th>
               <th>Work Location</th>
@@ -49,6 +51,7 @@ const TableComponent = () => {
           <tbody>
             {Certifications.slice(startIndex, endIndex).map(({ Id, org, work_location, certification, issue_date, type }) => (
               <tr key={Id}>
+                <td><Bookmark size="20"/></td>
                 <td>{Id}</td>
                 <td>{org}</td>
                 <td>{work_location}</td>

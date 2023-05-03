@@ -1,57 +1,82 @@
 .empleado-container{
+    display:column;
+    height: 100vh;
+}
+
+.top-empleado{
+    display:flex;
     width: 85vw;
-    background: rgb(69,137,255);
-background: linear-gradient(0deg, rgba(69,137,255,1) 0%, rgba(15,98,254,1) 100%);
+    background: rgb(170,185,221);
+    background: linear-gradient(90deg, rgba(170,185,221,1) 29%, rgba(69,114,228,1) 73%);
     height: 85vh;
     margin-left: 12vw;
-    margin-top: -77vw;
-    border-radius: 2%;
+    margin-top: -53vw;
+    border-radius: 30px;
 }
 
 .avatar{
-    margin-left: 20vw;
-    margin-top: -42vw;
+    flex: 1;
+    margin-left: 10vw;
     background-color: transparent;
-    color: white;
+    color: #262626;
     position:absolute;
+    margin-top: 5vw;
 }
 
 .texto {
-    color:#f4f4f4;
+    flex: 2;
+    color:#262626;
     position:absolute;
-    margin-left: 35vw;
-    margin-top: -42vw;
+    margin-left: 23vw;
     background-color: transparent;
+    margin-top: 5vw;
 }
 
 .texto2 {
-    color: #f4f4f4;
+    color: #262626;
     position:absolute;
-    margin-left: 35vw;
-    margin-top: -38vw;
+    margin-left: 23vw;
     background-color: transparent;
+    margin-top: 9vw;
 }
 
 .texto3 {
-    color: #f4f4f4;
+    color: #262626;
     position:absolute;
-    margin-left: 63vw;
-    margin-top: -42vw;
+    margin-left: 50vw;
     background-color: transparent;
+    margin-top: 5vw;
 }
 
 .texto4 {
-    color: #f4f4f4;
+    color: #262626;
     position:absolute;
-    margin-left: 63vw;
-    margin-top: -38vw;
+    margin-left: 50vw;
     background-color: transparent;
+    margin-top: 9vw;
 }
 
 .bookmark{
-    color: black;
+    color: #262626;
     background-color:transparent;
     position:absolute;
-    margin-left: 90vw;
-    margin-top: -45vw;
+    margin-left: 79vw;
+    margin-top: 3vw;
+}
+
+.table-1{
+    margin-top: -20vw;
+    background-color: #f4f4f4;
+    width: 70vw;
+    margin-left: 20vw;
+    border-radius: 30px;
+    margin-top: -30vw;
+}
+
+.table > :not(caption) > * > *{
+    padding: 1.7rem 5rem;
+}
+
+.col{
+    text-align: left;
 }
