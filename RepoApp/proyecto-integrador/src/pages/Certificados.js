@@ -16,7 +16,6 @@ const Certificados = () => {
           </div>
         <div className='right-right-upper'>
           <div>
-            Search bar
           </div>
         </div>
         <TableComponent/>  

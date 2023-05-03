@@ -2,20 +2,17 @@ import React, { useState } from 'react';
 import './TableComponent.css';
 import { Certifications } from '../../data/Certifications';
 
+
 const TableComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const [searchInput, setSearchInput] = useState('');
 
   // Determine the total number of pages based on the items per page value and the length of the array
-  const filteredCertifications = Certifications.filter(({ certification }) =>
-    certification.toLowerCase().includes(searchInput.toLowerCase())
-  );
-  const totalPages = Math.ceil(filteredCertifications.length / itemsPerPage);
+  const totalPages = Math.ceil(Certifications.length / itemsPerPage);
 
   // Calculate the range of items currently being shown on the table
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, filteredCertifications.length);
+  const endIndex = Math.min(startIndex + itemsPerPage, Certifications.length);
 
   // Generate an array of page numbers for the dropdown
   const pageNumbers = [];
@@ -33,16 +30,10 @@ const TableComponent = () => {
     setCurrentPage(1); // Reset the current page number when changing the items per page value
   };
 
-  const handleSearchInputChange = (event) => {
-    setSearchInput(event.target.value);
-    setCurrentPage(1); // Reset the current page number when changing the search input value
-  };
+  
 
   return (
     <div className='tablecomponent-container'>
-      <div className='search-container'>
-        <input type='text' value={searchInput} onChange={handleSearchInputChange} placeholder='Search...' />
-      </div>
       <div className='table-container'>
         <table>
           <thead>
@@ -56,7 +47,7 @@ const TableComponent = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredCertifications.slice(startIndex, endIndex).map(({ Id, org, work_location, certification, issue_date, type }) => (
+            {Certifications.slice(startIndex, endIndex).map(({ Id, org, work_location, certification, issue_date, type }) => (
               <tr key={Id}>
                 <td>{Id}</td>
                 <td>{org}</td>
